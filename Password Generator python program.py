@@ -11,4 +11,11 @@ def generate_password(length=12):
     digits = string.digits
     special = string.punctuation
     
- 
+    # Ensure the password has at least one character from each pool
+    all_characters = lower + upper + digits + special
+    password = [
+        random.choice(lower),
+        random.choice(upper),
+        random.choice(digits),
+        random.choice(special)
+    ]
