@@ -4,6 +4,8 @@ import string
 def generate_password(length=12):
     if length < 4:
         raise ValueError("Password length should be at least 4 characters.")
+    if length > 128:
+        raise ValueError("Password length should not exceed 128 characters.")
     
     # Character pools
     lower = string.ascii_lowercase
@@ -19,7 +21,8 @@ def generate_password(length=12):
         random.choice(digits),
         random.choice(special)
     ]
-     # Fill the rest of the password length with random characters
+    
+    # Fill the rest of the password length with random characters
     password += random.choices(all_characters, k=length - 4)
     
     # Shuffle the password to avoid predictable patterns
