@@ -19,3 +19,10 @@ def generate_password(length=12):
         random.choice(digits),
         random.choice(special)
     ]
+     # Fill the rest of the password length with random characters
+    password += random.choices(all_characters, k=length - 4)
+    
+    # Shuffle the password to avoid predictable patterns
+    random.shuffle(password)
+    
+    return ''.join(password)
