@@ -29,3 +29,13 @@ def generate_password(length=12):
     random.shuffle(password)
     
     return ''.join(password)
+if __name__ == "__main__":
+    while True:
+        try:
+            length = int(input("Enter password length (between 4 and 128, or 0 to exit): "))
+            if length == 0:
+                print("Exiting the program. Goodbye!")
+                break
+            print("Generated Password:", generate_password(length))
+        except ValueError as e:
+            print("Error:", e)
